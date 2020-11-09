@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+ {% load static %}
+
+    {% block content %}
+
+<section>
+    <div class="container-fluid bg-dark align-items-center p-0" style="height: 300px">
+        <div class="row align-items-center h-100">
+            <div class="col mx-auto col-md-4">
+                {% if user.is_authenticated %}
+                    <p class="text-center text-white">Bienvenue {{ user.first_name }} {{ user.last_name }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid align-items-center" style="height: 300px">
+            <div class="row align-items-center h-100">
+                <div class="col mx-auto col-md-4">
+                    {% if user.is_authenticated %}
+                        <p class="text-center">Votre email :  {{ user.email }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+	{% endblock content %}

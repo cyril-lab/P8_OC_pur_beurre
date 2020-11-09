@@ -1,0 +1,92 @@
+[type=search] {
+  background: #dcdcdc;
+}
+
+#search-prod-1 {
+  padding: 15px;
+  width: 100%;
+  margin: 0px;
+}
+
+#row-search-prod-home {
+  margin: 60px;
+}
+
+#history-text {
+  color: black;
+  text-align: justify;
+  padding: 0px 10px 0px 10px;
+  width: 100%;
+}
+
+#logo-img {
+  width: 50px;
+}
+
+#colette-img {
+  width: 88px;
+}
+
+#remy-img {
+  width: 254px;
+}
+
+#contact {
+  padding: 40px 0px;
+}
+
+#mainNav {
+  background: #345a61;
+}
+
+#index-header-img {
+  background-image: url('../../assets/img/fond1.jpg');
+}
+
+#footer {
+  height: 4rem;
+}
+
+#footer .text-center {
+  padding: 22px;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  padding-right: 0px;
+}
+
+a:hover {
+  color: #1e1716;
+  text-decoration: none;
+}
+
+#food-header {
+  padding-top: 0px;
+  height: 226px;
+  min-height: 231px;
+}
+
+.bg-moules {
+  background-color: #345a61;
+}
+
+.bg-rooibos {
+  background-color: #c45525;
+}
+
+.bg-rigolo {
+  background-color: #86ebe6;
+}
+
+.bg-caramel {
+  background-color: #de9440;
+}
+
+.bg-biscuit {
+  background-color: #e8a75d;
+}
+
+#contact-1 {
+  height: initial;
+  padding: 0px;
+}
+
