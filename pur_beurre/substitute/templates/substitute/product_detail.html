@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+ {% load static %}
+
+    {% block content %}
+
+
+    <header id="food-header" class="masthead text-center text-white d-flex">
+        <div class="container-fluid bg-dark" style="height: 300px;">
+            <div class="row align-items-center h-100" style="height: 394px;">
+                <div class="col mx-auto col-md-4">
+                    <div>
+                        <p class="text-center text-white">Produit à substituer : </p>
+                    </div>
+                    <div>
+                        <img src="{{product.image_url}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="d-flex container">
+
+            <div class="row">
+
+
+                <div class="col-md-4" style="height: 600px;">
+                    <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center"><img src="{{url}}">
+                    </div>
+                    <p>{{product.name}}</p>
+                    <a href="{{product.url}}">voir fiche openfoodfact</a>
+                    <p>{{product.nutriment_fat}} <br>Matières grasses / Lipides</br> en quantité modérée </p>
+                    <p>{{product.nutriment_sat}} <br>Acides gras saturés</br> en quantité modérée </p>
+                    <p>{{product.nutriment_saturated_fat}} <br>Sucres</br> en quantité élevée </p>
+                    <p>{{product.nutriment_sugars}} <br>Sel</br> en quantité modérée </p>
+
+
+
+                <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center">
+                        {% if product.name == "a"%}
+                            <img src={% static 'assets/fonts/nutriscore-a.svg' %}>
+                        {% elif product.nutriscore == "b"%}
+                            <img src={% static 'assets/fonts/nutriscore-b.svg' %}>
+                        {% elif product.nutriscore == "c"%}
+                            <img src={% static 'assets/fonts/nutriscore-c.svg' %}>
+                        {% elif product.nutriscore == "d"%}
+                            <img src={% static 'assets/fonts/nutriscore-d.svg' %}>
+                        {% elif product.nutriscore == "e"%}
+                            <img src={% static 'assets/fonts/nutriscore-e.svg' %}>
+                        {% endif %}
+                    </div>
+                </div>
+                {% if user.is_authenticated %}
+                <a href="{% url 'save_favorite' pk_prod=product.pk %}">
+                            <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fa fa-star fa fa-floppy-o mr-2">
+                                    </i>Sauvegarder
+                                </button>
+                            </div>
+                        </a>
+                {% endif %}
+            </div>
+
+
+
+        </div>
+    </section>
+
+
+
+    {% endblock content %}

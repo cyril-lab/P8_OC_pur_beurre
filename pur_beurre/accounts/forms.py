@@ -9,3 +9,6 @@ class CreateUserForm(forms.Form):
     email = forms.EmailField(label='email', max_length=100)
     password1 = forms.CharField(label='password1', widget=PasswordInput())
     password2 = forms.CharField(label='password2', widget=PasswordInput())
+
+
+

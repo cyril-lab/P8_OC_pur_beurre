@@ -90,3 +90,12 @@ a:hover {
   padding: 0px;
 }
 
+.img-product {
+  height: 100%;
+  max-width: 100%;
+}
+
+.img-product-box {
+  height: 10rem;
+
+}
