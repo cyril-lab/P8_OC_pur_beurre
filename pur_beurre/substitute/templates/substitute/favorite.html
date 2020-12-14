@@ -1,60 +1,102 @@
-{% extends 'layout.html' %}
+{% extends 'pur_beurre/layout.html' %}
  {% load static %}
 
     {% block content %}
 
 
-    <header id="food-header" class="masthead text-center text-white d-flex">
-        <div class="container-fluid bg-dark" style="height: 300px;">
-            <div class="row align-items-center h-100" style="height: 394px;">
-                <div class="col mx-auto col-md-4">
-                    <div>
-                        <p class="text-center text-white">Mes favoris : </p>
-                    </div>
-
+<section>
+    <div  class="container" >
+        <div class="row align-items-center" >
+                <div class="col-md-12">
+                    <h2 class="text-center  ">Mes favoris</h2>
                 </div>
-            </div>
         </div>
-    </header>
-    <section>
-        <div class="d-flex container">
-
-            <div class="row">
+        <div class="row ">
             {% for pk, name, url, nutriscore in product %}
-
-                <div class="col-md-4" style="height: 600px;">
-
-                    <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center img-product-box">
-                        <img class="img-product" src="{{url}}">
-                    </div>
-
-                    <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center">
-                        {% if nutriscore == "a"%}
-                            <img src={% static 'assets/fonts/nutriscore-a.svg' %}>
-                        {% elif nutriscore == "b"%}
-                            <img src={% static 'assets/fonts/nutriscore-b.svg' %}>
-                        {% elif nutriscore == "c"%}
-                            <img src={% static 'assets/fonts/nutriscore-c.svg' %}>
-                        {% elif nutriscore == "d"%}
-                            <img src={% static 'assets/fonts/nutriscore-d.svg' %}>
-                        {% elif nutriscore == "e"%}
-                            <img src={% static 'assets/fonts/nutriscore-e.svg' %}>
-                        {% endif %}
-                    </div>
-                    <div class="text-center">
-                        <h3>{{name}}</h3>
-                        <a  href="{% url 'favorite-detail' pk=pk %}">Détail</a>
+                <div class="col-md-6 col-lg-4 ">
+                    <div class="card mt-4 product-box">
+                        <div class="position-relative">
+                        <img class="card-img img-product" src="{{url}}">
+                        <div class="card-img-overlay d-flex justify-content-end align-items-baseline">
+                            {% if nutriscore == "a"%}
+                                <img class="img-nutriscore"
+                                     src={% static 'assets/fonts/nutriscore-a.svg' %}>
+                            {% elif nutriscore == "b"%}
+                                <img class="img-nutriscore"src={% static 'assets/fonts/nutriscore-b.svg' %}>
+                            {% elif nutriscore == "c"%}
+                                <img class="img-nutriscore"src={% static 'assets/fonts/nutriscore-c.svg' %}>
+                            {% elif nutriscore == "d"%}
+                                <img class="img-nutriscore"src={% static 'assets/fonts/nutriscore-d.svg' %}>
+                            {% elif nutriscore == "e"%}
+                                <img class="img-nutriscore"src={% static 'assets/fonts/nutriscore-e.svg' %}>
+                            {% endif %}
+                        </div>
+                        </div>
+                            <div class="card-body">
+                                <a class="card-link" href="{% url 'favorite-detail' pk=pk %}">
+                                    <h5 class="card-title" >{{name}}</h5>
+                                </a>
+                            </div>
 
                     </div>
                 </div>
-
             {% endfor %}
             </div>
-
-
-
         </div>
-    </section>
+</section>
+
+
+<!--    <header id="food-header" class="masthead text-center text-white d-flex">-->
+<!--        <div class="container-fluid bg-dark" style="height: 300px;">-->
+<!--            <div class="row align-items-center h-100" style="height: 394px;">-->
+<!--                <div class="col mx-auto col-md-4">-->
+<!--                    <div>-->
+<!--                        <p class="text-center text-white">Mes favoris : </p>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </header>-->
+<!--    <section>-->
+<!--        <div class="d-flex container">-->
+
+<!--            <div class="row">-->
+<!--            {% for pk, name, url, nutriscore in product %}-->
+
+<!--                <div class="col-md-4" style="height: 600px;">-->
+
+<!--                    <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center img-product-box">-->
+<!--                        <img class="img-product" src="{{url}}">-->
+<!--                    </div>-->
+
+<!--                    <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center">-->
+<!--                        {% if nutriscore == "a"%}-->
+<!--                            <img src={% static 'assets/fonts/nutriscore-a.svg' %}>-->
+<!--                        {% elif nutriscore == "b"%}-->
+<!--                            <img src={% static 'assets/fonts/nutriscore-b.svg' %}>-->
+<!--                        {% elif nutriscore == "c"%}-->
+<!--                            <img src={% static 'assets/fonts/nutriscore-c.svg' %}>-->
+<!--                        {% elif nutriscore == "d"%}-->
+<!--                            <img src={% static 'assets/fonts/nutriscore-d.svg' %}>-->
+<!--                        {% elif nutriscore == "e"%}-->
+<!--                            <img src={% static 'assets/fonts/nutriscore-e.svg' %}>-->
+<!--                        {% endif %}-->
+<!--                    </div>-->
+<!--                    <div class="text-center">-->
+<!--                        <h3>{{name}}</h3>-->
+<!--                        <a  href="{% url 'favorite-detail' pk=pk %}">Détail</a>-->
+
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            {% endfor %}-->
+<!--            </div>-->
+
+
+
+<!--        </div>-->
+<!--    </section>-->
 
 
 

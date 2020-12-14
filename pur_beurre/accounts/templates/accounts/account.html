@@ -1,21 +1,21 @@
-{% extends 'layout.html' %}
+{% extends 'pur_beurre/layout.html' %}
  {% load static %}
 
     {% block content %}
 
-<section>
-    <div class="container-fluid bg-dark align-items-center p-0" style="height: 300px">
+<section id ="container-img-account">
+    <div  class="container-fluid align-items-center p-0" >
         <div class="row align-items-center h-100">
             <div class="col mx-auto col-md-4">
                 {% if user.is_authenticated %}
-                    <p class="text-center text-white">Bienvenue {{ user.first_name }} {{ user.last_name }}</p>
+                    <h4 class="text-center text-white bg bg-dark p-4">Bienvenue {{ user.first_name }} {{ user.last_name }}</h4>
                 {% endif %}
             </div>
         </div>
     </div>
-    <div class="container-fluid align-items-center" style="height: 300px">
+    <div class="container-fluid align-items-center" >
             <div class="row align-items-center h-100">
-                <div class="col mx-auto col-md-4">
+                <div class="col mt-5">
                     {% if user.is_authenticated %}
                         <p class="text-center">Votre email :  {{ user.email }}</p>
                     {% endif %}

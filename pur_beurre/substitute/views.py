@@ -1,9 +1,9 @@
 from django.contrib.postgres.search import SearchQuery, SearchVector
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
-from .forms import SearchProduct
 from substitute.models.product import Product
-from substitute.models.product import User
+from substitute.models.user import User
+
+from .forms import SearchProduct
 
 
 def homepage(request):
@@ -35,7 +35,7 @@ def search(request):
                        'product_img': product_img,
                        'search_product': query})
     else:
-        return HttpResponse('pas de reponses dsl')
+        return render(request, 'substitute/no_result.html', {'search_product': query})
 
 
 def product(request, pk):
@@ -73,3 +73,4 @@ def favorite_detail(request, pk):
     product_detail = get_object_or_404(Product, pk=pk)
     return render(request, 'substitute/favorite_detail.html',
                   {'product': product_detail})
+

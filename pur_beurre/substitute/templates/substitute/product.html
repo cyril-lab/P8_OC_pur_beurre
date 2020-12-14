@@ -1,74 +1,65 @@
-{% extends 'layout.html' %}
+{% extends 'pur_beurre/layout.html' %}
  {% load static %}
 
     {% block content %}
 
+<section id="section-product">
+    <div  class="container-fluid bg-dark" >
+            <div class="row align-items-center" >
 
-    <header id="food-header" class="masthead text-center text-white d-flex">
-        <div class="container-fluid bg-dark" style="height: 300px;">
-            <div class="row align-items-center h-100" style="height: 394px;">
-                <div class="col mx-auto col-md-4">
-                    <div>
-                        <p class="text-center text-white">Produit à substituer : {{search_product}}</p>
-                    </div>
-                    <div>
-                        <img src="{{product_img}}">
-                    </div>
+                <div class="col-md-6 text-center" >
+                    <img class="img-product p-3" src="{{product_img}}">
+
+                </div>
+                <div class="col-md-6">
+                    <h4 class="text-center text-white ">Aliment cherché : {{search_product}}</h4>
                 </div>
             </div>
         </div>
-    </header>
-    <section>
-        <div class="d-flex container">
-
-            <div class="row">
+        <div class="container">
+            <div class="row ">
             {% for pk, name, url, nutriscore in product_substitute %}
-
-                <div class="col-md-4" style="height: 600px;">
-
-                    <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center img-product-box">
-                        <img class="img-product" src="{{url}}">
-                    </div>
-
-                    <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center">
-                        {% if nutriscore == "a"%}
-                            <img src={% static 'assets/fonts/nutriscore-a.svg' %}>
-                        {% elif nutriscore == "b"%}
-                            <img src={% static 'assets/fonts/nutriscore-b.svg' %}>
-                        {% elif nutriscore == "c"%}
-                            <img src={% static 'assets/fonts/nutriscore-c.svg' %}>
-                        {% elif nutriscore == "d"%}
-                            <img src={% static 'assets/fonts/nutriscore-d.svg' %}>
-                        {% elif nutriscore == "e"%}
-                            <img src={% static 'assets/fonts/nutriscore-e.svg' %}>
-                        {% endif %}
-                    </div>
-                    <div class="text-center">
-                        <h3 >{{name}}</h3>
-                        <a href="{% url 'product' pk=pk %}">Détail</a>
-
-                        {% if user.is_authenticated %}
-                        <a href="{% url 'save_favorite' pk_prod=pk %}">
-                            <div class="d-flex d-xl-flex justify-content-center justify-content-xl-center">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fa fa-star fa fa-floppy-o mr-2">
-                                    </i>Sauvegarder
-                                </button>
+                <div class="col-md-6 col-lg-4 ">
+                    <div class="card mt-4 product-box">
+                        <div class="position-relative">
+                        <img class="card-img img-product" src="{{url}}">
+                        <div class="card-img-overlay d-flex justify-content-end align-items-baseline">
+                            {% if nutriscore == "a"%}
+                                <img class="img-nutriscore"
+                                     src={% static 'assets/fonts/nutriscore-a.svg' %}>
+                            {% elif nutriscore == "b"%}
+                                <img class="img-nutriscore"src={% static 'assets/fonts/nutriscore-b.svg' %}>
+                            {% elif nutriscore == "c"%}
+                                <img class="img-nutriscore"src={% static 'assets/fonts/nutriscore-c.svg' %}>
+                            {% elif nutriscore == "d"%}
+                                <img class="img-nutriscore"src={% static 'assets/fonts/nutriscore-d.svg' %}>
+                            {% elif nutriscore == "e"%}
+                                <img class="img-nutriscore"src={% static 'assets/fonts/nutriscore-e.svg' %}>
+                            {% endif %}
+                        </div>
+                        </div>
+                            <div class="card-body">
+                                <a class="card-link" href="{% url 'product' pk=pk %}">
+                                    <h5 class="card-title" >{{name}}</h5>
+                                </a>
                             </div>
-                        </a>
-
+                        {% if user.is_authenticated %}
+                        <div class="text-center card-footer">
+                            <a href="{% url 'save_favorite' pk_prod=pk %}">
+                                <div class="d-flex d-xl-flex justify-content-center align-items-end">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fa fa-star fa fa-floppy-o mr-2">
+                                        </i>Sauvegarder
+                                    </button>
+                                </div>
+                            </a>
+                        </div>
                         {% endif %}
                     </div>
                 </div>
-
             {% endfor %}
             </div>
-
-
-
         </div>
-    </section>
-
-
+</section>
 
     {% endblock content %}

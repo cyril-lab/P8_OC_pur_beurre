@@ -16,7 +16,7 @@ class Product(models.Model):
     nutriment_sugars = models.CharField(max_length=100, default='inconnu')
     nutriment_salt = models.CharField(max_length=100, default='inconnu')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    favorite = models.ManyToManyField(User, related_name="user_favorite", null=True, blank=True)
+    favorite = models.ManyToManyField(User, related_name="user_favorite", blank=True)
 
     def __str__(self):
         return self.pk

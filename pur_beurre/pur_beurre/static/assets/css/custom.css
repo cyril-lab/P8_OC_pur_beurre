@@ -35,6 +35,10 @@
   padding: 40px 0px;
 }
 
+#contact-1 {
+  margin-bottom:80px;
+}
+
 #mainNav {
   background: #345a61;
 }
@@ -45,6 +49,13 @@
 
 #footer {
   height: 4rem;
+
+  position: fixed;
+  bottom:0;
+  width:100%;
+  background-color: white;
+
+
 }
 
 #footer .text-center {
@@ -60,7 +71,7 @@ a:hover {
 }
 
 #food-header {
-  padding-top: 0px;
+  padding-top: 20px;
   height: 226px;
   min-height: 231px;
 }
@@ -91,11 +102,42 @@ a:hover {
 }
 
 .img-product {
-  height: 100%;
-  max-width: 100%;
-}
-
-.img-product-box {
   height: 10rem;
 
+}
+
+.product-box {
+  height: 19rem;
+}
+
+.img-nutriscore {
+  height: 4rem;
+}
+
+#section-product {
+  padding: 4rem 0;
+
+}
+.card-img {
+  max-width: 100%;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-detail {
+  padding-top: 0;
+}
+
+#container-img-account {
+  /*padding-top: 0;*/
+  background-image: url('../../assets/img/fond1.jpg');
+  height: 150px;
+}
+
+#container-no-result {
+  /*padding-top: 0;*/
+  /*background-image: url('../../assets/img/fond1.jpg');*/
+  height: 5000px;
 }
