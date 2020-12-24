@@ -34,8 +34,7 @@ if os.environ.get('ENV') == 'PRODUCTION':
 else:
     DEBUG = True
 
-if os.environ.get('ENV') == 'PRODUCTION':
-    django_heroku.settings(locals())
+
 
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
@@ -169,4 +168,5 @@ if os.environ.get('ENV') == 'PRODUCTION':
         os.path.join(PROJECT_ROOT, 'static'),
     )
 
-django_heroku.settings(locals())
+if os.environ.get('ENV') == 'PRODUCTION':
+    django_heroku.settings(locals())
