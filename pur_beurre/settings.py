@@ -65,7 +65,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'pur_beurre.urls'
@@ -150,7 +149,7 @@ STATICFILES_DIRS = [
 
 AUTH_USER_MODEL = 'substitute.user'
 
-django_heroku.settings(locals())
+
 
 if os.environ.get('ENV') == 'PRODUCTION':
     # ...
@@ -169,3 +168,5 @@ if os.environ.get('ENV') == 'PRODUCTION':
     STATICFILES_DIRS = (
         os.path.join(PROJECT_ROOT, 'static'),
     )
+
+django_heroku.settings(locals())
