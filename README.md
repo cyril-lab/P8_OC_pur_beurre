@@ -28,23 +28,10 @@ Download the project with Git and open the command line and go to project path :
 `python3 manage.py openfoodfacts`
 or
 `python3 manage.py openfoodfacts --delete`
-for deleting database
-
+for clean database
 
 ###### Start test server :
 `python3 manage.py runserver`
 
 ###### Stop virtual environment :
 `deactivate`
-
-#### Configurations :
-
-You can change the categories and the maximum number of products downloaded in the files named : config/config.py
-
-#### Controls :
-
-To access to the desired menu, simply type the number corresponding to your choice.
-
-Press "q" to return to the main menu.
-Press "s" or "p" in the product menu and in the substitute menu for navigate.
-Press "y" or "n" to validate or not the registration of the substitute product.
