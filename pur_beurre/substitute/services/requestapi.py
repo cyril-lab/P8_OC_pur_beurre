@@ -23,8 +23,9 @@ class RequestApi:
 
     def get_number_products(self):
         """method to get the number of products in the category"""
-        number_product_category = requests.get(
-            f"https://fr.openfoodfacts.org/categorie/{self.category}.json")
+        number_product_category = \
+            requests.get(f"https://fr.openfoodfacts.org/categorie/"
+                         f"{self.category}.json")
         number_product_category_json = number_product_category.json()
         self.number_products = int(number_product_category_json["count"])
         return self.number_products
