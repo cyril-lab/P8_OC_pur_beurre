@@ -143,7 +143,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
+    # BASE_DIR / "pur_beurre" / "static",
     BASE_DIR / "pur_beurre" / "static",
+
 ]
 
 AUTH_USER_MODEL = 'substitute.user'
