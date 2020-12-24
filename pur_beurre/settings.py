@@ -24,7 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'u^6x(%qz5#q(u!_xsaviwl5ahil!ki%87&b!r7rh07h3^zq5nh'
+# SECRET_KEY = 'u^6x(%qz5#q(u!_xsaviwl5ahil!ki%87&b!r7rh07h3^zq5nh'
+SECRET_KEY = os.environ.get("SECRET_KEY", 'u^6x(%qz5#q(u!_xsaviwl5ahil!ki%87&b!r7rh07h3^zq5nh')
 
 ENV = 'PRODUCTION'
 
@@ -66,6 +67,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+LOGIN_REDIRECT_URL = "/"
 
 ROOT_URLCONF = 'pur_beurre.urls'
 
@@ -151,22 +154,9 @@ AUTH_USER_MODEL = 'substitute.user'
 
 
 
-if os.environ.get('ENV') == 'production':
+STATIC_ROOT = str(BASE_DIR / 'staticfiles')
 
-    BASE_DIR = BASE_DIR = Path(__file__).resolve().parent
-
-    # Static files (CSS, JavaScript, Images)
-    # https://docs.djangoproject.com/en/1.9/howto/static-files/
-    STATIC_ROOT = BASE_DIR / 'staticfiles',
-    # STATIC_URL = '/static/'
-
-    # Extra places for collectstatic to find static files.
-
-    STATICFILES_DIRS = (
-        BASE_DIR / "static",
-    )
-
-    db_from_env = dj_database_url.config(conn_max_age=500)
+db_from_env = dj_database_url.config(conn_max_age=500)
 
 if os.environ.get('ENV') == 'PRODUCTION':
     django_heroku.settings(locals())
