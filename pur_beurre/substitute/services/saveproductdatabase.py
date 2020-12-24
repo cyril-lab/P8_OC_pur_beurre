@@ -5,7 +5,7 @@ from substitute.models.category import Category
 from substitute.models.product import Product
 
 
-class Application:
+class SaveProductDatabase:
 
     def __init__(self, *args):
         self.category = args
@@ -15,7 +15,8 @@ class Application:
             self.save(cat)
 
     def save(self, category):
-        self._save_product(self._save_category(category), self._download_data(category))
+        self._save_product(self._save_category(category),
+                           self._download_data(category))
 
     def _save_category(self, category):
         bdd_category = Category(name=category)
@@ -24,6 +25,7 @@ class Application:
 
     def _download_data(self, category):
         products = ClearData(category)
+        products.get_number_products()
         products.get_data_api()
         return products.generate_products_list()
 
@@ -42,4 +44,3 @@ class Application:
                               nutriment_salt=product_data[8],
                               category_id=category_id)
             product.save()
-

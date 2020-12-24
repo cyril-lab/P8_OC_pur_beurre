@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.db import models
 from substitute.models.category import Category
 from substitute.models.user import User
@@ -12,18 +11,13 @@ class Product(models.Model):
     image_url = models.CharField(max_length=200)
     nutriscore = models.CharField(max_length=100)
     nutriment_fat = models.CharField(max_length=100, default='inconnu')
-    nutriment_saturated_fat = models.CharField(max_length=100, default='inconnu')
+    nutriment_saturated_fat = models.CharField(max_length=100,
+                                               default='inconnu')
     nutriment_sugars = models.CharField(max_length=100, default='inconnu')
     nutriment_salt = models.CharField(max_length=100, default='inconnu')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    favorite = models.ManyToManyField(User, related_name="user_favorite", blank=True)
+    favorite = models.ManyToManyField(User, related_name="user_favorite",
+                                      blank=True)
 
     def __str__(self):
         return self.pk
-
-
-# class Favorites(models.Model):
-#     username = models.CharField(max_length=200)
-#
-#     favourite = models.ManyToManyField(settings.AUTH_USER_MODEL, blank=True, related_name='user_favourite')
-

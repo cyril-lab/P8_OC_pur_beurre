@@ -1,24 +1,10 @@
 
-<section>
+<div class="col-md-8 p-3 mx-auto">
+          <form class="input-group" method="GET" action="{% url 'search' %}">
+            <input id="search" type="search" class="form-control" placeholder="Produit" name="name_product" autocomplete="off">
+            <div class="input-group-append">
+                <button id="search-button"class="btn btn-primary" type="submit">Chercher</button>
+            </div>
+          </form>
 
-
-<div class="container">
-
-
-        <form class="" action="{% url 'search' %}" method="get" accept-charset="utf-8">
-                        {% csrf_token %}
-            <div class="row">
-                <div class="col-md-6 ">
-                    <div class="form-group">{{ form }}</div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <button class="btn btn-primary btn-block " type="submit">Rechercher
-                        </button></div>
-                </div>
-
-                </div>
-        </form>
 <div/>
-</section>

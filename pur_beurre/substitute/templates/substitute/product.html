@@ -1,25 +1,20 @@
 {% extends 'pur_beurre/layout.html' %}
- {% load static %}
-
-    {% block content %}
+{% load static %}
+{% block title %}Produits{% endblock %}
+{% block content %}
 
 <section id="section-product">
-    <div  class="container-fluid bg-dark" >
-            <div class="row align-items-center" >
-
-                <div class="col-md-6 text-center" >
-                    <img class="img-product p-3" src="{{product_img}}">
-
-                </div>
-                <div class="col-md-6">
-                    <h4 class="text-center text-white ">Aliment cherché : {{search_product}}</h4>
+        <div  class="container-fluid bg-dark" >
+            <div class="row background-product align-items-center" style="background-image:url({{product_img}})">
+                <div class=" mx-auto ">
+                    <h4 id="product" class="text-center text-white  bg-rooibos p-4 text-uppercase rounded-pill">{{search_product}}</h4>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row ">
             {% for pk, name, url, nutriscore in product_substitute %}
-                <div class="col-md-6 col-lg-4 ">
+            <div class="col-md-6 col-lg-4 ">
                     <div class="card mt-4 product-box">
                         <div class="position-relative">
                         <img class="card-img img-product" src="{{url}}">
@@ -58,8 +53,9 @@
                     </div>
                 </div>
             {% endfor %}
-            </div>
         </div>
+    </div>
+
 </section>
 
-    {% endblock content %}
+{% endblock content %}

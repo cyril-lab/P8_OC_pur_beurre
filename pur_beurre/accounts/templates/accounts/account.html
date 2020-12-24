@@ -1,7 +1,7 @@
 {% extends 'pur_beurre/layout.html' %}
- {% load static %}
-
-    {% block content %}
+{% load static %}
+{% block title %}Mon compte{% endblock %}
+{% block content %}
 
 <section id ="container-img-account">
     <div  class="container-fluid align-items-center p-0" >
@@ -17,11 +17,11 @@
             <div class="row align-items-center h-100">
                 <div class="col mt-5">
                     {% if user.is_authenticated %}
-                        <p class="text-center">Votre email :  {{ user.email }}</p>
+                        <p id="account-mail" class="text-center">Votre email :  {{ user.email }}</p>
                     {% endif %}
                 </div>
             </div>
         </div>
     </section>
 
-	{% endblock content %}
+{% endblock content %}

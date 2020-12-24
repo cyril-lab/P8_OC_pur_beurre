@@ -1,13 +1,6 @@
 
-<!--<form class="form-inline" action="{% url 'search' %}" method="get" accept-charset="utf-8">-->
-<!--                    {% csrf_token %}-->
-<!--                    <div class="form-group">{{ form_nav }}</div>-->
+<form action="{% url 'search' %}" method="get" accept-charset="utf-8">
 
-<!--</form>-->
 
-<form id="searchform"  action="{% url 'search' %}" method="get" accept-charset="utf-8">
-<!--      <button class="searchbutton" type="submit">-->
-<!--           <i class="fa fa-search"></i>-->
-<!--      </button>-->
-      <input class="searchfield form-control" id="searchbox" name="name_product" type="text" placeholder="Search">
+      <input id="search-header" class="searchfield form-control" name="name_product" type="text" placeholder="Chercher">
 </form>

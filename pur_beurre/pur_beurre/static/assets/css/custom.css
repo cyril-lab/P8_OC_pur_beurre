@@ -8,12 +8,8 @@
   margin: 0px;
 }
 
-#row-search-prod-home {
-  margin: 60px;
-}
-
 #history-text {
-  color: black;
+  color: #000000;
   text-align: justify;
   padding: 0px 10px 0px 10px;
   width: 100%;
@@ -43,10 +39,6 @@
   background: #345a61;
 }
 
-#index-header-img {
-  background-image: url('../../assets/img/fond1.jpg');
-}
-
 #footer {
   height: 4rem;
 
@@ -54,15 +46,10 @@
   bottom:0;
   width:100%;
   background-color: white;
-
-
 }
 
 #footer .text-center {
-  padding: 22px;
-  padding-left: 0px;
-  padding-bottom: 0px;
-  padding-right: 0px;
+  padding: 22px 0px 0px;
 }
 
 a:hover {
@@ -103,7 +90,6 @@ a:hover {
 
 .img-product {
   height: 10rem;
-
 }
 
 .product-box {
@@ -116,7 +102,6 @@ a:hover {
 
 #section-product {
   padding: 4rem 0;
-
 }
 .card-img {
   max-width: 100%;
@@ -131,13 +116,25 @@ a:hover {
 }
 
 #container-img-account {
-  /*padding-top: 0;*/
   background-image: url('../../assets/img/fond1.jpg');
   height: 150px;
 }
 
 #container-no-result {
-  /*padding-top: 0;*/
-  /*background-image: url('../../assets/img/fond1.jpg');*/
   height: 5000px;
+}
+
+.background-product {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 300px;
+}
+
+html{
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  font-family: "Scope One", sans-serif;
 }

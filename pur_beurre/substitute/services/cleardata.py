@@ -23,8 +23,6 @@ class ClearData(RequestApi):
                         and nutriment.get("salt") is not None \
                         and len(products) < self.number_products_max:
 
-                    # print(nutriment.get("sugars"))
-
                     products.extend([[product.get("product_name_fr"),
                                       product.get("stores"),
                                       product.get("url"),
@@ -36,4 +34,3 @@ class ClearData(RequestApi):
                                       nutriment.get("salt")]])
 
         return products
-

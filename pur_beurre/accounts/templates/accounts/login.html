@@ -1,25 +1,26 @@
 {% extends 'pur_beurre/layout.html' %}
- {% load static %}
-
-    {% block content %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Me connecter{% endblock %}
+{% block content %}
 
     <section>
         <div class="container col-md-6">
             <div class="form-container">
                 <div class="image-holder"></div>
-                <form action="" method="post">
-                    {% csrf_token %}
-                    <h2 class="text-center m-4"><strong>Connexion</strong></h2>
-                    <div class="form-group"><input type="text" name="username" placeholder="Email..." class="form-control"></div>
-                    <div class="form-group"><input type="password" name="password" placeholder="Password..." class="form-control" ></div>
-
-                    {% for message in messages %}
-					<p id="messages">{{message}}</p>
+                {% csrf_token %}
+                {% for message in messages %}
+					<h4 class="text-danger" id="messages">{{message}}</h4>
 				    {% endfor %}
-                    <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Se connecter</button>
-                    </div><a class="already" href="{% url 'register' %}">Vous n'avez pas de compte ? Créer un compte.</a></form>
+                    <form method="post" action="{% url 'login' %}">
+                    {% crispy form %}
+                </form>
+                </div><a class="already" href="{% url 'register' %}">Vous n'avez pas de compte ? Créer un compte.</a><div>
             </div>
         </div>
     </section>
 
-	{% endblock content %}
+
+
+
+{% endblock content %}
