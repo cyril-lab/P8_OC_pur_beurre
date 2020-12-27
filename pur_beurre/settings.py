@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'u^6x(%qz5#q(u!_xsaviwl5ahil!ki%87&b!r7rh07h3^zq5nh'
 SECRET_KEY = os.environ.get("SECRET_KEY", 'u^6x(%qz5#q(u!_xsaviwl5ahil!ki%87&b!r7rh07h3^zq5nh')
 
-ENV = 'DEBUG'
+ENV = 'PRODUCTION'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -145,8 +145,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 STATICFILES_DIRS = [
-    BASE_DIR / "pur_beurre" / "static",
+    BASE_DIR / "static",
+# BASE_DIR / "pur_beurre" / "static",
 
 ]
 
