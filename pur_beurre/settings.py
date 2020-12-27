@@ -28,13 +28,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", 'u^6x(%qz5#q(u!_xsaviwl5ahil!ki%87&b!r7rh07h3^zq5nh')
 
 ENV = 'PRODUCTION'
-DEBUG = False
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# if os.environ.get('ENV') == 'PRODUCTION':
-#     DEBUG = False
-# else:
-#     DEBUG = True
+if os.environ.get('ENV') == 'PRODUCTION':
+    DEBUG = False
+else:
+    DEBUG = True
 
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', 'p8-oc-purbeurre.herokuapp.com']
@@ -167,7 +167,7 @@ if os.environ.get('ENV') == 'PRODUCTION':
     )
 
 if os.environ.get('ENV') == 'PRODUCTION':
-    # ...
+
     db_from_env = dj_database_url.config(conn_max_age=500)
     DATABASES['default'].update(db_from_env)
 
