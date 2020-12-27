@@ -154,6 +154,7 @@ AUTH_USER_MODEL = 'substitute.user'
 
 
 if os.environ.get('ENV') == 'PRODUCTION':
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     # Static files settings
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
