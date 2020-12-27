@@ -147,16 +147,25 @@ STATIC_URL = '/static/'
 
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-# BASE_DIR / "pur_beurre" / "static",
+    # BASE_DIR / "static",
+    BASE_DIR / "pur_beurre" / "static",
 
 ]
 
 AUTH_USER_MODEL = 'substitute.user'
 
 
+if os.environ.get('ENV') == 'PRODUCTION':
 
-STATIC_ROOT = str(BASE_DIR / 'staticfiles')
+    # Static files settings
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
+    # Extra places for collectstatic to find static files.
+    STATICFILES_DIRS = (
+        os.path.join(PROJECT_ROOT, 'static'),
+    )
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 
