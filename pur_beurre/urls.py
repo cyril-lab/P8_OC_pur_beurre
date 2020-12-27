@@ -16,11 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from pur_beurre import views
 
 urlpatterns = [
     path('', include('substitute.urls')),
-    # path('', views.homepage, name='homepage'),
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
 ]

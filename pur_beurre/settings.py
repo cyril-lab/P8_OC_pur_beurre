@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY", 'u^6x(%qz5#q(u!_xsaviwl5ahil!ki%87&b!r7rh07h3^zq5nh')
 
 ENV = 'PRODUCTION'
-DEBUG = True
+DEBUG = False
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # if os.environ.get('ENV') == 'PRODUCTION':
