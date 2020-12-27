@@ -37,9 +37,7 @@ else:
     DEBUG = True
 
 
-
-
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', 'p8-oc-purbeurre.herokuapp.com']
 
 
 # Application definition
